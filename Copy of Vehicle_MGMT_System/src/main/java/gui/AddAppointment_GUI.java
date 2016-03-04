@@ -35,6 +35,8 @@ public class AddAppointment_GUI extends JFrame {
 	private JTextField searchTextfield;
 	private JLabel lblCustomersName;
 	private JLabel lblMakeModel;
+	private JButton btnAddPart;
+	private JLabel lblReg;
 	
 	public AddAppointment_GUI() {
 		setTitle("Create Appointment");
@@ -56,13 +58,17 @@ public class AddAppointment_GUI extends JFrame {
 		customerPanel.add(searchTextfield);
 		searchTextfield.setColumns(10);
 		
-		lblCustomersName = new JLabel("customer\r\n");
-		lblCustomersName.setBounds(22, 86, 157, 14);
+		lblCustomersName = new JLabel("");
+		lblCustomersName.setBounds(10, 61, 157, 14);
 		customerPanel.add(lblCustomersName);
 		
-		lblMakeModel = new JLabel("vehicle");
-		lblMakeModel.setBounds(264, 86, 168, 14);
+		lblMakeModel = new JLabel("");
+		lblMakeModel.setBounds(267, 86, 168, 14);
 		customerPanel.add(lblMakeModel);
+		
+		lblReg = new JLabel("reg");
+		lblReg.setBounds(267, 61, 157, 14);
+		customerPanel.add(lblReg);
 		
 		JPanel ServicePanel = new JPanel();
 		ServicePanel.setLayout(null);
@@ -108,6 +114,10 @@ public class AddAppointment_GUI extends JFrame {
         partsscroller = new JScrollPane(partstable);
 		
 		partsPanel.add(partsscroller);
+		
+		btnAddPart = new JButton("Add Part");
+		btnAddPart.setBounds(177, 23, 89, 23);
+		//partsPanel.add(btnAddPart);
 		
 		btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(364, 478, 89, 23);
@@ -202,6 +212,16 @@ public class AddAppointment_GUI extends JFrame {
 	public void setLblMakeModel(JLabel lblMakeModel) {
 		this.lblMakeModel = lblMakeModel;
 	}
+	
+	
+
+	public JLabel getLblReg() {
+		return lblReg;
+	}
+
+	public void setLblReg(JLabel lblReg) {
+		this.lblReg = lblReg;
+	}
 
 	public void CancelandReturn(ActionListener listenForClick){
 	    
@@ -215,6 +235,20 @@ public class AddAppointment_GUI extends JFrame {
 	public void searchforReg(ActionListener listenForClick){
 	    
 		searchTextfield.addActionListener(listenForClick);
+		
+		}
+	
+	public void addParttoAppointment(ActionListener listenForClick){
+	    
+		btnAddPart.addActionListener(listenForClick);
+
+
+		
+		}
+	
+	public void saveAppointment(ActionListener listenForClick){
+	    
+		btnSave.addActionListener(listenForClick);
 
 
 		

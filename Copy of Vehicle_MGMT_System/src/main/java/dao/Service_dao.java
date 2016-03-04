@@ -5,6 +5,8 @@ import java.util.List;
 
 
 
+
+import model.Parts_Model;
 import model.Service_Model;
 
 import org.hibernate.Session;
@@ -61,6 +63,7 @@ public class Service_dao implements Service_Interface {
 	private static SessionFactory getSessionFactory() {
 		Configuration config = new Configuration();
 		config.addAnnotatedClass(Service_Model.class);
+		config.addAnnotatedClass(Parts_Model.class);
 		config.configure("hibernate.cfg.xml");
 
 		ServiceRegistryBuilder rgs = new ServiceRegistryBuilder()

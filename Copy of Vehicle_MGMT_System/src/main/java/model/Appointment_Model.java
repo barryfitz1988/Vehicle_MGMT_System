@@ -3,105 +3,124 @@ package model;
 import java.sql.Time;
 import java.util.Date;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Appointment_Model {
 	
 	@Id
+	@GeneratedValue
 	private int appointment_id;
-	private Date date;
-	private Time time;
-	private int customer_id;
-	private int employee_id;
-	private int job_id;
-	private int vehicle_id;
-	private int customer_vehicle_id;
+	private String date;
+	private String time;
+	private String customer_name;
+	private String employee_name;
+	private String job_name;
+	private String vehicle_reg;
+	//private int customer_vehicle_id;
 	
 	
-	
-	
-	
-	public Appointment_Model(int appointment_id, Date date, Time time,
-			int customer_id, int employee_id, int job_id, int vehicle_id,
-			int customer_vehicle_id) {
-
+	public Appointment_Model(int appointment_id, String date, String time,
+			String customer_name, String employee_name, String job_name,
+			String vehicle_reg) {
 		this.appointment_id = appointment_id;
 		this.date = date;
 		this.time = time;
-		this.customer_id = customer_id;
-		this.employee_id = employee_id;
-		this.job_id = job_id;
-		this.vehicle_id = vehicle_id;
-		this.customer_vehicle_id = customer_vehicle_id;
+		this.customer_name = customer_name;
+		this.employee_name = employee_name;
+		this.job_name = job_name;
+		this.vehicle_reg = vehicle_reg;
 	}
 	
-	
-	public Appointment_Model(){
-		
-	}
-	
-	
+	public Appointment_Model(){}
+
+
 	public int getAppointment_id() {
 		return appointment_id;
 	}
+
+
 	public void setAppointment_id(int appointment_id) {
 		this.appointment_id = appointment_id;
 	}
-	public Date getDate() {
+
+
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+
+
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public Time getTime() {
+
+
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+
+
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public int getCustomer_id() {
-		return customer_id;
-	}
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
-	}
-	public int getEmployee_id() {
-		return employee_id;
-	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
-	}
-	public int getJob_id() {
-		return job_id;
-	}
-	public void setJob_id(int job_id) {
-		this.job_id = job_id;
-	}
-	public int getVehicle_id() {
-		return vehicle_id;
-	}
-	public void setVehicle_id(int vehicle_id) {
-		this.vehicle_id = vehicle_id;
-	}
-	public int getCustomer_vehicle_id() {
-		return customer_vehicle_id;
-	}
-	public void setCustomer_vehicle_id(int customer_vehicle_id) {
-		this.customer_vehicle_id = customer_vehicle_id;
+
+
+	public String getCustomer_name() {
+		return customer_name;
 	}
 
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+
+	public String getEmployee_name() {
+		return employee_name;
+	}
+
+
+	public void setEmployee_name(String employee_name) {
+		this.employee_name = employee_name;
+	}
+
+
+	public String getJob_name() {
+		return job_name;
+	}
+
+
+	public void setJob_name(String job_name) {
+		this.job_name = job_name;
+	}
+
+
+	public String getVehicle_reg() {
+		return vehicle_reg;
+	}
+
+
+	public void setVehicle_reg(String vehicle_reg) {
+		this.vehicle_reg = vehicle_reg;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Appointment_Model [appointment_id=" + appointment_id
-				+ ", date=" + date + ", time=" + time + ", customer_id="
-				+ customer_id + ", employee_id=" + employee_id + ", job_id="
-				+ job_id + ", vehicle_id=" + vehicle_id
-				+ ", customer_vehicle_id=" + customer_vehicle_id + "]";
+				+ ", date=" + date + ", time=" + time + ", customer_name="
+				+ customer_name + ", employee_name=" + employee_name
+				+ ", job_name=" + job_name + ", vehicle_reg=" + vehicle_reg
+				+ "]";
 	}
+	
+	
+	
+	
+
 	
 
 

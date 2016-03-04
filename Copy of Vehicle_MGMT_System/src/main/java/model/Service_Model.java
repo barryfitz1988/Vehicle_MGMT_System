@@ -1,7 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Service_Model {
@@ -9,17 +18,22 @@ public class Service_Model {
 	@Id
 	private int  job_id;
 	private String job_name;
-	private String job_time;
+	private int job_time;
 	private double job_price;
 	
+	//@NotFound(action=NotFoundAction.IGNORE)
+	@OneToMany(cascade=CascadeType.ALL)
+	private Collection<Parts_Model> parts = new ArrayList<Parts_Model>();
 	
 	
-	public Service_Model(int job_id, String job_name, String job_time,
-			double job_price) {
+	
+	public Service_Model(int job_id, String job_name, int job_time,
+			double job_price, ArrayList<Parts_Model> parts) {
 		this.job_id = job_id;
 		this.job_name = job_name;
 		this.job_time = job_time;
 		this.job_price = job_price;
+		this.parts =  parts;
 	}
 	
 	
@@ -46,12 +60,12 @@ public class Service_Model {
 	}
 
 
-	public String getJob_time() {
+	public int getJob_time() {
 		return job_time;
 	}
 
 
-	public void setJob_time(String job_time) {
+	public void setJob_time(int job_time) {
 		this.job_time = job_time;
 	}
 
@@ -66,11 +80,25 @@ public class Service_Model {
 	}
 
 
+	public Collection<Parts_Model> getParts() {
+		return parts;
+	}
+
+
+	public void setParts(ArrayList<Parts_Model> parts) {
+		this.parts = parts;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Service_Model [job_id=" + job_id + ", job_name=" + job_name
-				+ ", job_time=" + job_time + ", job_price=" + job_price + "]";
+				+ ", job_time=" + job_time + ", job_price=" + job_price
+				+ ", parts=" + parts + "]";
 	}
+
+
+
 
 
 

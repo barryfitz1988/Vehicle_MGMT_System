@@ -96,7 +96,8 @@ public class Service_Controller {
 			try {
 
 				String name = servicegui.getNameTextfield().getText();
-				String time = servicegui.getTimeTextField().getText();
+				double timeextract = Double.parseDouble(servicegui.getTimeTextField().getText());
+				int time = (int) timeextract;
 				double idextract = Double.parseDouble(servicegui.getIdTextField().getText());
 				int id = (int) idextract;
 				double price = Double.parseDouble(servicegui.getPriceTextField().getText());
@@ -160,7 +161,8 @@ public class Service_Controller {
 
 				serviceservice.open();
 				String name = servicegui.getNameTextfield().getText();
-				String time = servicegui.getTimeTextField().getText();
+				double timeextract = Double.parseDouble(servicegui.getTimeTextField().getText());
+				int time = (int) timeextract;
 				double idextract = Double.parseDouble(servicegui.getIdTextField().getText());
 				int id = (int) idextract;
 				double price = Double.parseDouble(servicegui.getPriceTextField().getText());
@@ -212,7 +214,7 @@ public class Service_Controller {
 						servicegui.getNameTextfield().setText(
 								c.getJob_name());
 						servicegui.getTimeTextField().setText(
-								c.getJob_time());
+								Integer.toString(c.getJob_time()));
 						servicegui.getPriceTextField().setText(
 								Double.toString(c.getJob_price()));
 		

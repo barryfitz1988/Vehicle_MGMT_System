@@ -51,7 +51,7 @@ public class Appointment_GUI extends JFrame {
     private JButton deleteButton;
     private JButton exitButton;
     private TableColumnModel columnModel;
-    DefaultTableModel tablemodel;
+    private DefaultTableModel tablemodel;
 
 
 	public Appointment_GUI() {
@@ -69,24 +69,20 @@ public class Appointment_GUI extends JFrame {
         spreadsheetpanel.setLayout(null);
 		
 		
-        appointmentTable = new JTable(16, 16);
+        appointmentTable = new JTable();
         appointmentScroller = new JScrollPane(appointmentTable);
 		appointmentScroller.setBounds(0, 0, 675, 126);
 		 rowtable = new RowNumberTable(appointmentTable);
 		 appointmentScroller.setRowHeaderView(rowtable);
 		 appointmentScroller.setCorner(JScrollPane.UPPER_LEFT_CORNER,rowtable.getTableHeader());
 		tablemodel = (DefaultTableModel)appointmentTable.getModel();
+		//tablemodel.setColumnCount(arg0);
 		columnModel = appointmentTable.getColumnModel();
 		appointmentTable.setRowHeight(25);
+		//appointmentTable.setValueAt("HELLO", 0, 0);
 		appointmentTable.setVisible(false);
         
-		
 
-	
-		
-		
-		
-		
 		spreadsheetpanel.add(appointmentScroller);
 		
 		calanderPanel = new JPanel();
@@ -127,6 +123,9 @@ public class Appointment_GUI extends JFrame {
 	}
 	
 	
+
+
+
 	public void MyDateListener(DateListener changedDate){
 		
 		
@@ -244,6 +243,13 @@ public class Appointment_GUI extends JFrame {
 		this.rowtable = rowtable;
 	}
 	
-	
+	public DefaultTableModel getTablemodel() {
+		return tablemodel;
+	}
+
+
+	public void setTablemodel(DefaultTableModel tablemodel) {
+		this.tablemodel = tablemodel;
+	}
 	
 }
